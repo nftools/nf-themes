@@ -20,7 +20,7 @@ define class nfthemes as form
 	alwaysontop	= .t.
 	width		= 350
 	height		= 410
-	caption 	= 'nfTools - ( Click=FontColor ^Click=BackColor )'
+	caption 	= 'nfTools - ( Click=FontColor RightClick=BackColor )'
 	backcolor 	= rgb(100,100,100)
 
 	add object pf as pageframe with ;
