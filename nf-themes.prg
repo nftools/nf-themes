@@ -81,10 +81,6 @@ BookmarkColor,ShortcutColor
 
 	this.visible = .t.
 
-*----------------------------
-	procedure destroy
-*-----------------------------
-	clear events
 
 *****************************************
 enddefine
