@@ -8,7 +8,6 @@
 _screen.addproperty('nfthemes',createobject('nfThemes'))
 
 
-
 *************************************
 define class nfthemes as form
 *************************************
@@ -23,6 +22,8 @@ define class nfthemes as form
 	height		= 450
 	caption 	= 'nfTools - ( Click=FontColor RightClick=BackColor )'
 	backcolor 	= rgb(100,100,100)
+	showTips	= .t.
+
 
 	add object pf as pageframe with ;
 		left = 2, top = 0,height = 410,width=348,;
@@ -129,6 +130,7 @@ define class colorlbl as label
 		.forecolor	= rgb(&ac(1),&ac(2),&ac(3))
 		.backcolor	= rgb(&ac(4),&ac(5),&ac(6))
 		.width 		= thisform.width-20
+		.tooltiptext = m.colorKeyname
 	endwith
 
 
@@ -136,11 +138,25 @@ define class colorlbl as label
 	function mouseup(nbutton, nshift, nxcoord, nycoord)
 *----------------------------------------------------------
 
+
 	local newcolor
 	local csp
 	local fred,fgreen,fblue,bred,bgreen,bblue
+	local tt,tc
 
-	newcolor =  getcolor()
+	if m.nbutton=1
+		tt = ' ForeColor'
+		tc = this.ForeColor
+	else
+		tt = ' BackColor'
+		tc = this.BackColor
+	endif
+		
+
+	wait  textmerge('Pick <<m.tt>> For <<rtrim(this.colorKeyName,1,"color")>>') window nowait 
+	
+
+	newcolor =  getcolor(m.tc)
 
 	if m.newcolor = -1
 		return
