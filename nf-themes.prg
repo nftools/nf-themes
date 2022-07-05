@@ -139,7 +139,8 @@ define class colorlbl as label
 
 	local newcolor
 	local csp
-
+	local fred,fgreen,fblue,bred,bgreen,bblue
+	
 	newcolor =  getcolor()
 
 	if m.newcolor = -1
