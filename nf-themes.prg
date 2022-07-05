@@ -2,6 +2,7 @@
 * Marco Plaza, 2022
 * @nfoxdev
 * visualfoxpro color preferences
+* v1.0.0 
 *******************************************************
 
 _screen.addproperty('nfthemes',createobject('nfThemes'))
@@ -19,12 +20,12 @@ define class nfthemes as form
 	autocenter	= .t.
 	alwaysontop	= .t.
 	width		= 350
-	height		= 410
+	height		= 450
 	caption 	= 'nfTools - ( Click=FontColor RightClick=BackColor )'
 	backcolor 	= rgb(100,100,100)
 
 	add object pf as pageframe with ;
-		left = 0, top = 0,height = 380,width=350,;
+		left = 2, top = 0,height = 410,width=348,;
 		themes=.f.,tabstyle=0,specialeffect=0,tabstretch=0,;
 		borderwidth=0,pagecount=10
 
@@ -40,7 +41,7 @@ define class nfthemes as form
 	local array albls(1)
 
 	text TO colorKeys NOSHOW PRETEXT 2+4+8
-EditorVariableColor,EditorCommentColor,EditorKeyWordColor,EditorOperatorColor,EditorConstantColor,EditorStringColor,
+EditorNormalColor,EditorVariableColor,EditorCommentColor,EditorKeyWordColor,EditorOperatorColor,EditorConstantColor,EditorStringColor,
 TraceNormalColor,TraceExecutingColor,TraceCallStackColor,
 TraceBreakpointColor,TraceSelectedColor,
 WatchNormalColor,WatchSelectedColor,WatchChangedColor,
@@ -123,7 +124,7 @@ define class colorlbl as label
 
 	with this
 		.caption	= m.colorkeyname 
-		.colorKeyname	= m.colorkeyName
+		.colorKeyname = m.colorkeyName
 		.top		= m.top
 		.forecolor	= rgb(&ac(1),&ac(2),&ac(3))
 		.backcolor	= rgb(&ac(4),&ac(5),&ac(6))
@@ -135,12 +136,10 @@ define class colorlbl as label
 	function mouseup(nbutton, nshift, nxcoord, nycoord)
 *----------------------------------------------------------
 
-
-
 	local newcolor
 	local csp
 	local fred,fgreen,fblue,bred,bgreen,bblue
-	
+
 	newcolor =  getcolor()
 
 	if m.newcolor = -1
@@ -175,4 +174,3 @@ define class colorlbl as label
 ******************************************
 enddefine
 ******************************************
-
